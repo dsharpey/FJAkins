@@ -314,69 +314,76 @@
     </footer>
 
     <!-- Popup -->
-    <div class="popup-overlay" id="popup">
-        <div class="popup-content">
-            <span class="close-popup" id="closePopup">&times;</span>
-            <h2>GET YOUR FREE GUIDE NOW</h2>
-            <p>Sign up to receive 'Beyond the Basics: Your Guide to Sustainable Fitness' directly to your inbox.</p>
-            <p>Plus, get exclusive training tips and updates from me</p>
-            <form id="emailForm" class="email-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdnClO1fVYuEpQygibcG1zHQSbVoBkzB-SB1g4OBM7-ZPN7YA/formResponse" method="POST" target="_blank">
-    <input 
-        type="email" 
-        name="entry.2102694308" 
-        placeholder="Enter your email" 
-        required 
-        style="width: 100%; padding: 15px; margin: 20px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white;"
-    >
-    <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
-</form>
-        </div>
+    <!-- Popup -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <span class="close-popup" id="closePopup">&times;</span>
+        <h2>GET YOUR FREE COPY TODAY!</h2>
+        <p>Sign up to receive 'Beyond the Basics: Your Guide to Sustainable Fitness' directly to your inbox.</p>
+        <p>Plus, get exclusive training tips and updates from me</p>
+        <form id="emailForm" class="email-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdnClO1fVYuEpQygibcG1zHQSbVoBkzB-SB1g4OBM7-ZPN7YA/formResponse" method="POST" target="_blank">
+            <input 
+                type="text" 
+                name="entry.36479667" 
+                placeholder="Enter your name" 
+                required 
+                style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white;"
+            >
+            <input 
+                type="email" 
+                name="entry.2102694308" 
+                placeholder="Enter your email" 
+                required 
+                style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white;"
+            >
+            <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
+        </form>
     </div>
+</div>
 
-    <!-- JavaScript -->
-    <script>
-        // Popup functionality
-        const popup = document.getElementById('popup');
-        const openPopupBtn = document.getElementById('openPopup');
-        const closePopupBtn = document.getElementById('closePopup');
-        const emailForm = document.getElementById('emailForm');
+<!-- JavaScript -->
+<script>
+    // Popup functionality
+    const popup = document.getElementById('popup');
+    const openPopupBtn = document.getElementById('openPopup');
+    const closePopupBtn = document.getElementById('closePopup');
+    const emailForm = document.getElementById('emailForm');
 
-        openPopupBtn.addEventListener('click', () => {
-            popup.style.display = 'flex';
-        });
+    openPopupBtn.addEventListener('click', () => {
+        popup.style.display = 'flex';
+    });
 
-        closePopupBtn.addEventListener('click', () => {
+    closePopupBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close popup when clicking outside
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
             popup.style.display = 'none';
-        });
-
-        // Close popup when clicking outside
-        popup.addEventListener('click', (e) => {
-            if (e.target === popup) {
-                popup.style.display = 'none';
-            }
-        });
-
-        // Show popup after 5 seconds if not shown before
-        if (!localStorage.getItem('popupShown')) {
-            setTimeout(() => {
-                popup.style.display = 'flex';
-                localStorage.setItem('popupShown', 'true');
-            }, 5000);
         }
+    });
 
-        // Form submission
-        emailForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            
-            try {
-                // Add your email collection logic here
-                popup.style.display = 'none';
-                alert('Thank you! Check your email for your free guide.');
-            } catch (error) {
-                alert('Something went wrong. Please try again.');
-            }
-        });
-    </script>
-</body>
-</html>
+    // Show popup after 5 seconds if not shown before
+    if (!localStorage.getItem('popupShown')) {
+        setTimeout(() => {
+            popup.style.display = 'flex';
+            localStorage.setItem('popupShown', 'true');
+        }, 5000);
+    }
+
+    // Form submission
+    emailForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = e.target.querySelector('input[name="entry.36479667"]').value;
+        const email = e.target.querySelector('input[name="entry.2102694308"]').value;
+        
+        try {
+            // Add your email collection logic here
+            popup.style.display = 'none';
+            alert('Thank you! Check your email for your free guide.');
+        } catch (error) {
+            alert('Something went wrong. Please try again.');
+        }
+    });
+</script>

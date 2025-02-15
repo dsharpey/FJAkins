@@ -493,9 +493,38 @@
                     required 
                     style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white;"
                 >
-                <input 
+                   <input 
                     type="email" 
                     name="entry.2102694308" 
                     placeholder="Enter your email" 
                     required 
-                    style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border
+                    style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white;"
+                >
+                <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Popup functionality
+        const popup = document.getElementById('popup');
+        const openPopupBtn = document.getElementById('openPopup');
+        const closePopupBtn = document.getElementById('closePopup');
+
+        openPopupBtn.addEventListener('click', () => {
+            popup.style.display = 'flex';
+        });
+
+        closePopupBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+
+        // Close popup when clicking outside
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

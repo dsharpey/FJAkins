@@ -32,10 +32,6 @@
             padding: 0 20px;
         }
 
-        h1, h2, h3 {
-    color: var(--accent-color); /* This sets the color to the defined accent color, which is blue */
-}
-
         /* Hero Section */
         .hero {
             text-align: center;
@@ -122,7 +118,7 @@
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 30px;
             margin-top: 40px;
         }
 
@@ -234,7 +230,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 820px) {
+        @media (max-width: 768px) {
             .card-container {
                 grid-template-columns: 1fr;
             }
@@ -313,8 +309,8 @@
         }
 
         /* About Section */
-       .about-section {
-            padding: 60px 40px;
+        .about-section {
+            padding: 60px 20px;
             background: var(--primary-color);
             border-radius: 15px;
             margin: 20px;
@@ -323,7 +319,8 @@
         }
 
         .about-image {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             height: auto; /* Maintain aspect ratio */
             margin: 0 auto 20px; /* Center image and reduce gap */
             display: block; /* Ensure image is centered */
@@ -333,6 +330,7 @@
         .about-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .about-content p {
@@ -340,20 +338,11 @@
             line-height: 1.8;
         }
 
-           @media (max-width: 768px) {
-            .about-section .container {
-                max-width: 100%; /* Allow full width on mobile */
+        @media (max-width: 768px) {
+            .about-content {
+                max-width: 100%; /* Ensure full width on mobile */
                 padding: 0 20px; /* Add padding for better readability */
             }
-
-            .about-image {
-                width: 250px;
-            }
-
-            .about-content {
-                max-width: 100%; 
-    }
-}
         }
     </style>
 </head>

@@ -344,11 +344,16 @@
             line-height: 1.8;
         }
 
-        @media (max-width: 800px) {
-            .about-image {
-                width: 250px;
-                height: 350px;
             }
+            @media (max-width: 768px) {
+    .about-image {
+        width: 250px;
+    }
+
+    .about-content {
+        max-width: 90%; /* Increase text width on mobile */
+    }
+}
         }
     </style>
 </head>

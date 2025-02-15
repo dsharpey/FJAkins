@@ -340,14 +340,18 @@
             line-height: 1.8;
         }
 
-        @media (max-width: 768px) {
+           @media (max-width: 768px) {
+            .about-section .container {
+                max-width: 100%; /* Allow full width on mobile */
+                padding: 0 20px; /* Add padding for better readability */
+            }
+
             .about-image {
                 width: 250px;
             }
 
             .about-content {
-                max-width: 100%; /* Increase text width on mobile */
-                padding: 0 10px; 
+                max-width: 100%; 
     }
 }
         }

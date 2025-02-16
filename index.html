@@ -507,32 +507,51 @@
 
     <script>
         // Popup functionality
-        const popup = document.getElementById('popup
-function submitForm(e) {
-    e.preventDefault();
-    
-    const form = document.getElementById('emailForm');
-    const formData = new FormData(form);
-    
-    fetch('https://docs.google.com/forms/d/193WYDhPcae3uOIjrW38yL31Fd1Zw6inC-j2SA4gP44c/formResponse', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-    })
-    .then(response => {
-        // Show success message
-        alert('Thank you! Your submission has been received.');
-        form.reset();
-        // Close popup
-        document.getElementById('popup').style.display = 'none';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Still show success because Google Forms will block the response due to CORS
-        alert('Thank you! Your submission has been received.');
-        form.reset();
-        // Close popup
-        document.getElementById('popup').style.display = 'none';
+    const popup = document.getElementById('popup');
+    const openPopupBtn = document.getElementById('openPopup');
+    const closePopupBtn = document.getElementById('closePopup');
+
+    openPopupBtn.addEventListener('click', () => {
+        popup.style.display = 'flex';
     });
-}
+
+    closePopupBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close popup when clicking outside
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+
+    // Form submission
+    function submitForm(e) {
+        e.preventDefault();
+        
+        const form = document.getElementById('emailForm');
+        const formData = new FormData(form);
+        
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSfqwRFGo7ff3uU8lXIVdtWIFz6Sxi2_39bzYsLtZs2wzp4GHA/formResponse', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        })
+        .then(response => {
+            // Show success message
+            alert('Thank you! Your submission has been received.');
+            form.reset();
+            // Close popup
+            popup.style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Still show success because Google Forms will block the response due to CORS
+            alert('Thank you! Your submission has been received.');
+            form.reset();
+            // Close popup
+            popup.style.display = 'none';
+        });
+    }
 </script>

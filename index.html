@@ -480,30 +480,34 @@
         <p>*Any results depend on the individual's effort and drive</p>
     </footer>
 
-        <!-- Popup -->
+    <!-- Popup -->
     <div class="popup-overlay" id="popup">
         <div class="popup-content">
             <span class="close-popup" id="closePopup">&times;</span>
             <h2>GET YOUR FREE COPY TODAY!</h2>
-         <form id="emailForm" class="email-form" onsubmit="submitForm(event)">
-    <input 
-        type="text" 
-        name="entry.1014865577" 
-        placeholder="Enter your name" 
-        required 
-        style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
-    >
-    <input 
-        type="email" 
-        email="entry.330156345" 
-        placeholder="Enter your email" 
-        required 
-        style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
-    >
-    <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
-</form>
+            <form id="emailForm" class="email-form" onsubmit="submitForm(event)">
+                <input 
+                    type="text" 
+                    name="entry.1014865577" 
+                    placeholder="Enter your name" 
+                    required 
+                    style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
+                >
+                <input 
+                    type="email" 
+                    name="entry.330156345" 
+                    placeholder="Enter your email" 
+                    required 
+                    style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
+                >
+                <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
+            </form>
+        </div>
+    </div>
 
-<script>
+    <script>
+        // Popup functionality
+        const popup = document.getElementById('popup
 function submitForm(e) {
     e.preventDefault();
     

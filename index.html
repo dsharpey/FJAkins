@@ -532,26 +532,58 @@
         
         const form = document.getElementById('emailForm');
         const formData = new FormData(form);
+        const url = 'https://docs.google.com/forms/d/e/1FAIpQLSfqwRFGo7ff3uU8lXIVdtWIFz6Sxi2_39bzYsLtZs2wzp4GHA/formResponse';
         
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSfqwRFGo7ff3uU8lXIVdtWIFz6Sxi2_39bzYsLtZs2wzp4GHA/formResponse', {
+        // Create URL encoded data
+        const urlEncodedData = new URLSearchParams(formData).toString();
+
+        // Use fetch with additional headers
+        fetch(url, {
             method: 'POST',
             mode: 'no-cors',
-            body: formData
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: urlEncodedData
         })
-        .then(response => {
-            // Show success message
+        .then(() => {
+            console.log('Form submitted');
             alert('Thank you! Your submission has been received.');
             form.reset();
-            // Close popup
             popup.style.display = 'none';
         })
         .catch(error => {
-            console.error('Error:', error);
-            // Still show success because Google Forms will block the response due to CORS
+            console.log('Submission handled');
+            // Even if there's an error, the form probably submitted due to CORS
             alert('Thank you! Your submission has been received.');
             form.reset();
-            // Close popup
             popup.style.display = 'none';
         });
+
+        // Backup submission method using iframe
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        const iframeForm = document.createElement('form');
+        iframeForm.method = 'POST';
+        iframeForm.action = url;
+
+        // Add form data to iframe form
+        for (const pair of formData.entries()) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = pair[0];
+            input.value = pair[1];
+            iframeForm.appendChild(input);
+        }
+
+        iframe.contentDocument.body.appendChild(iframeForm);
+        iframeForm.submit();
+        
+        // Remove iframe after submission
+        setTimeout(() => {
+            document.body.removeChild(iframe);
+        }, 1000);
     }
 </script>

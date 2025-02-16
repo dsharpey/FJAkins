@@ -481,32 +481,32 @@
     </footer>
 
     <!-- Popup -->
-    <div class="popup-overlay" id="popup">
-        <div class="popup-content">
-            <span class="close-popup" id="closePopup">&times;</span>
-            <h2>GET YOUR FREE COPY TODAY!</h2>
-           <form id="emailForm" class="email-form" onsubmit="submitForm(event)">
-    <input 
-        type="text" 
-        name="entry.1014865577" 
-        placeholder="Enter your name" 
-        required 
-        style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
-    >
-    <input 
-        type="email" 
-        name="entry.330156345" 
-        placeholder="Enter your email" 
-        required 
-        style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
-    >
-    <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
-</form>
-        </div>
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <span class="close-popup" id="closePopup">&times;</span>
+        <h2>GET YOUR FREE COPY TODAY!</h2>
+        <form id="emailForm" class="email-form" action="https://docs.google.com/forms/d/193WYDhPcae3uOIjrW38yL31Fd1Zw6inC-j2SA4gP44c/formResponse" method="POST" target="_blank">
+            <input 
+                type="text" 
+                name="entry.1014865577" 
+                placeholder="Enter your name" 
+                required 
+                style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
+            >
+            <input 
+                type="email" 
+                name="entry.330156345" 
+                placeholder="Enter your email" 
+                required 
+                style="width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: black;"
+            >
+            <button type="submit" class="cta-button" style="width: 100%;">GET MY FREE GUIDE</button>
+        </form>
     </div>
+</div>
 
-    <script>
-        // Popup functionality
+<script>
+    // Popup functionality
     const popup = document.getElementById('popup');
     const openPopupBtn = document.getElementById('openPopup');
     const closePopupBtn = document.getElementById('closePopup');
@@ -527,63 +527,11 @@
     });
 
     // Form submission
-    function submitForm(e) {
-        e.preventDefault();
-        
-        const form = document.getElementById('emailForm');
-        const formData = new FormData(form);
-        const url = 'https://docs.google.com/forms/d/e/1FAIpQLSfqwRFGo7ff3uU8lXIVdtWIFz6Sxi2_39bzYsLtZs2wzp4GHA/formResponse';
-        
-        // Create URL encoded data
-        const urlEncodedData = new URLSearchParams(formData).toString();
-
-        // Use fetch with additional headers
-        fetch(url, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: urlEncodedData
-        })
-        .then(() => {
-            console.log('Form submitted');
-            alert('Thank you! Your submission has been received.');
-            form.reset();
-            popup.style.display = 'none';
-        })
-        .catch(error => {
-            console.log('Submission handled');
-            // Even if there's an error, the form probably submitted due to CORS
-            alert('Thank you! Your submission has been received.');
-            form.reset();
-            popup.style.display = 'none';
-        });
-
-        // Backup submission method using iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        
-        const iframeForm = document.createElement('form');
-        iframeForm.method = 'POST';
-        iframeForm.action = url;
-
-        // Add form data to iframe form
-        for (const pair of formData.entries()) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = pair[0];
-            input.value = pair[1];
-            iframeForm.appendChild(input);
-        }
-
-        iframe.contentDocument.body.appendChild(iframeForm);
-        iframeForm.submit();
-        
-        // Remove iframe after submission
+    document.getElementById('emailForm').addEventListener('submit', function(e) {
         setTimeout(() => {
-            document.body.removeChild(iframe);
+            this.reset();
+            popup.style.display = 'none';
+            alert('Thank you! Your submission has been received.');
         }, 1000);
-    }
+    });
 </script>

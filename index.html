@@ -480,12 +480,12 @@
         <p>*Any results depend on the individual's effort and drive</p>
     </footer>
 
- <!-- Popup -->
+<!-- Popup -->
 <div class="popup-overlay" id="popup">
     <div class="popup-content">
         <span class="close-popup" id="closePopup">&times;</span>
         <h2>GET YOUR FREE COPY TODAY!</h2>
-        <form id="emailForm" class="email-form" action="https://docs.google.com/forms/d/e/1FAIpQLSf_fhmGUgjSYZVgzhddWDPgsN5dMfwR8CXVlousMDkU3VIg5w/formResponse" method="POST" target="_blank">
+        <form id="emailForm" class="email-form" onsubmit="submitForm(event)">
             <input 
                 type="text" 
                 name="entry.312186830" 
@@ -519,7 +519,6 @@
         popup.style.display = 'none';
     });
 
-    // Close popup when clicking outside
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             popup.style.display = 'none';
@@ -527,11 +526,53 @@
     });
 
     // Form submission
-    document.getElementById('emailForm').addEventListener('submit', function(e) {
-        setTimeout(() => {
-            this.reset();
+    function submitForm(e) {
+        e.preventDefault();
+        
+        const form = document.getElementById('emailForm');
+        const formData = new FormData(form);
+        
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLSf_fhmGUgjSYZVgzhddWDPgsN5dMfwR8CXVlousMDkU3VIg5w/formResponse', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(formData)
+        })
+        .then(() => {
+            form.reset();
             popup.style.display = 'none';
             alert('Thank you! Your submission has been received.');
+        })
+        .catch(() => {
+            form.reset();
+            popup.style.display = 'none';
+            alert('Thank you! Your submission has been received.');
+        });
+
+        // Backup submission method
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        const iframeForm = document.createElement('form');
+        iframeForm.method = 'POST';
+        iframeForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSf_fhmGUgjSYZVgzhddWDPgsN5dMfwR8CXVlousMDkU3VIg5w/formResponse';
+
+        for (const pair of formData.entries()) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = pair[0];
+            input.value = pair[1];
+            iframeForm.appendChild(input);
+        }
+
+        iframe.contentDocument.body.appendChild(iframeForm);
+        iframeForm.submit();
+        
+        setTimeout(() => {
+            document.body.removeChild(iframe);
         }, 1000);
-    });
+    }
 </script>

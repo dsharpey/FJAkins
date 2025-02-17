@@ -342,12 +342,44 @@
             line-height: 1.8;
         }
 
-        @media (max-width: 768px) {
-            .about-content {
-                max-width: 100%; /* Ensure full width on mobile */
-                padding: 0 10px; /* Add padding for better readability */
-            }
-        }
+/* Adjust the container padding for mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;  /* Reduce side padding */
+    }
+
+    .info-section {
+        padding: 40px 20px;  /* Reduce section padding */
+    }
+
+    .info-section li {
+        margin: 15px 0;  /* Increase vertical spacing between list items */
+        font-size: 1rem;  /* Slightly smaller font size for mobile */
+        line-height: 1.5;  /* Better line height for readability */
+    }
+
+    .card {
+        padding: 25px;  /* Adjust card padding */
+    }
+
+    .review {
+        padding: 25px;  /* Adjust review padding */
+    }
+
+    .popup-content {
+        padding: 30px 20px;  /* Adjust popup padding */
+        margin: 0 15px;  /* Add side margins */
+    }
+
+    /* Adjust text containers */
+    .hero p, 
+    .info-section p,
+    .card p,
+    .review p {
+        max-width: 100%;  /* Allow text to use full width */
+        padding: 0 5px;  /* Small padding for text */
+    }
+}
     </style>
 </head>
 <body>

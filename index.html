@@ -342,43 +342,121 @@
             line-height: 1.8;
         }
 
-/* Adjust the container padding for mobile */
 @media (max-width: 768px) {
+    /* General container adjustments */
     .container {
-        padding: 0 15px;  /* Reduce side padding */
+        padding: 0 15px;
+        width: 100%;
     }
 
+    /* Hero Section */
+    .hero {
+        padding: 40px 20px;
+        margin: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Info Sections */
     .info-section {
-        padding: 40px 20px;  /* Reduce section padding */
+        padding: 40px 20px;
+        margin: 15px;
     }
 
     .info-section li {
-        margin: 15px 0;  /* Increase vertical spacing between list items */
-        font-size: 1rem;  /* Slightly smaller font size for mobile */
-        line-height: 1.5;  /* Better line height for readability */
+        margin: 15px 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 40px 20px;
+        margin: 15px;
+    }
+
+    .about-content {
+        padding: 0 10px;
+    }
+
+    .about-content p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    /* Services/Card Section */
+    .card-section {
+        padding: 40px 20px;
     }
 
     .card {
-        padding: 25px;  /* Adjust card padding */
+        padding: 25px;
+        margin: 10px 0;
     }
 
+    .card p {
+        padding: 0 5px;
+        line-height: 1.5;
+    }
+
+    /* Reviews Section */
     .review {
-        padding: 25px;  /* Adjust review padding */
+        padding: 25px;
+        margin: 10px 0;
     }
 
-    .popup-content {
-        padding: 30px 20px;  /* Adjust popup padding */
-        margin: 0 15px;  /* Add side margins */
-    }
-
-    /* Adjust text containers */
-    .hero p, 
-    .info-section p,
-    .card p,
     .review p {
-        max-width: 100%;  /* Allow text to use full width */
-        padding: 0 5px;  /* Small padding for text */
+        padding: 0 5px;
+        line-height: 1.5;
     }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 40px 20px;
+        margin: 15px;
+    }
+
+    .contact-methods {
+        padding: 0 10px;
+    }
+
+    /* Popup */
+    .popup-content {
+        padding: 30px 20px;
+        margin: 0 15px;
+        width: 90%;
+    }
+
+    /* Text Containers (General) */
+    h1, h2, h3 {
+        padding: 0 10px;
+    }
+
+    p {
+        padding: 0 10px;
+        line-height: 1.5;
+    }
+
+    /* Social Links */
+    .social-links {
+        padding: 0 10px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 20px 15px;
+    }
+}
 }
     </style>
 </head>

@@ -202,53 +202,22 @@ h1, h2, h3 {
     color: var(--accent-color);
     margin-bottom: 15px;
 }
-/* Reviews Section - WIDER */
-.reviews-section {
-    padding: 60px 40px;
-}
-
-.reviews-section h2 {
-    text-align: center;
-    color: var(--accent-color);
-    margin-bottom: 40px;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
 .reviews-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px; /* Increased gap */
-    max-width: 1400px; /* Wider container */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .review {
     background: var(--primary-color);
-    padding: 40px; /* More padding */
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
-    min-height: 300px; /* Minimum height */
-}
-
-.stars {
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.review p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    color: var(--text-color);
-    font-size: 1rem; /* Ensure readable text size */
-}
-
-.author {
-    color: var(--accent-color);
-    font-weight: bold;
-    margin-top: 15px;
+    width: 100%;
 }
 /* Popup Styles */
 .popup-overlay {

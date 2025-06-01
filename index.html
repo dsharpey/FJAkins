@@ -205,23 +205,50 @@ h1, h2, h3 {
 .card:nth-child(5) { grid-column: 3.5 / 5.5; } /* More centered */
         
 /* Reviews Section */
+.reviews-section {
+    padding: 60px 40px;
+}
+
+.reviews-section h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .review {
     background: var(--primary-color);
     padding: 30px;
     border-radius: 15px;
-    margin-bottom: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .stars {
     color: var(--accent-color);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.review p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 .author {
     color: var(--accent-color);
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* Social Links */

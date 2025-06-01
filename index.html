@@ -6,21 +6,22 @@
     <title>FJ Akins Training | Transform Your Training</title>
     <style>
         /* Base Styles */
-        :root {
-            --primary-color: #1a1a2e; /* Deep Navy Blue */
-            --accent-color: #00aaff; /* Brighter Blue */
-            --background-color: #16213e; /* Dark Slate */
-            --text-color: #e0e1dd; /* Light Gray */
-        }
+      /* Base Styles */
+:root {
+    --primary-color: #1a1a2e; /* Deep Navy Blue */
+    --accent-color: #00aaff; /* Brighter Blue */
+    --background-color: #16213e; /* Dark Slate */
+    --text-color: #e0e1dd; /* Light Gray */
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
 
-      body {
+body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -157,9 +158,23 @@ h1, h2, h3 {
     font-size: 1.2rem;
 }
 
+/* Card Sections */
+.card-section {
+    padding: 60px 40px;
+}
+
+.card-section h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Back to 3 columns */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 30px;
     margin-top: 40px;
     max-width: 1200px;
@@ -167,26 +182,75 @@ h1, h2, h3 {
     margin-right: auto;
 }
 
-.card:nth-child(1) { grid-column: 1; }
-.card:nth-child(2) { grid-column: 2; }
-.card:nth-child(3) { grid-column: 3; }
-.card:nth-child(4) { 
-    grid-column: 1; 
-    grid-row: 2;
-    margin-left: 16.666%;
+.card {
+    flex: 0 0 calc(33.333% - 20px);
+    background: var(--primary-color);
+    padding: 30px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-.card:nth-child(5) { 
-    grid-column: 3;
-    grid-row: 2; 
-    margin-right: 16.666%;
+
+.card:nth-child(4) {
+    margin-left: calc(16.666% + 15px);
 }
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 60px 40px;
+}
+
+.reviews-section h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 .reviews-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px; /* Increased gap */
-    max-width: 1400px; /* Wider container */
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
 }
+
+.review {
+    flex: 1;
+    background: var(--primary-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.stars {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.review p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.author {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 /* Social Links */
 .social-links {
     display: flex;

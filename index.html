@@ -84,35 +84,89 @@
             box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
         }
 
-        /* Info Sections */
-        .info-section {
-            padding: 60px 40px;
-            background: var(--primary-color);
-            border-radius: 15px;
-            margin: 20px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
+       /* Problem/Solution Section Container */
+.problem-solution-wrapper {
+    padding: 80px 20px;
+    background: var(--primary-color);
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .info-section h2 {
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
+.problem-solution-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
 
-        .info-section p {
-            max-width: 700px;
-            margin: 0 auto 20px;
-        }
+/* Individual sections */
+.problem-section, .solution-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
 
-        .info-section ul {
-            list-style: none;
-            padding: 0;
-        }
+.problem-section h2, .solution-section h2 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
 
-        .info-section li {
-            margin: 10px 0;
-            font-size: 1.1rem;
-        }
+.problem-section ul, .solution-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.problem-section li, .solution-section li {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.problem-section li:last-child, .solution-section li:last-child {
+    margin-bottom: 0;
+}
+
+/* Icon spacing */
+.problem-section li span, .solution-section li span {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+/* Mobile responsiveness for problem/solution */
+@media (max-width: 768px) {
+    .problem-solution-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .problem-section, .solution-section {
+        padding: 30px 20px;
+    }
+    
+    .problem-section h2, .solution-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .problem-section li, .solution-section li {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+}
 
         /* Card Sections */
         .card-section {
@@ -472,28 +526,32 @@
         </div>
     </section>
 
-    <!-- Lead Magnet Sections -->
-    <section class="info-section">
-        <div class="container">
+<!-- Problem/Solution Section -->
+<section class="problem-solution-wrapper">
+    <div class="problem-solution-container">
+        
+        <!-- Left Side - Problems -->
+        <div class="problem-section">
             <h2>If You're Tired Of...</h2>
             <ul>
-                <li>😩 Endless workouts with no results</li>
-                <li>🍽️ Confusing diet plans</li>
-                <li>🔄 Feeling stuck in your fitness journey</li>
+                <li><span>😩</span> Endless workouts with no results</li>
+                <li><span>🍽️</span> Confusing diet plans</li>
+                <li><span>🔄</span> Feeling stuck in your fitness journey</li>
             </ul>
         </div>
-    </section>
-
-    <section class="info-section">
-        <div class="container">
+        
+        <!-- Right Side - Solutions -->
+        <div class="solution-section">
             <h2>In This Guide You'll Discover...</h2>
             <ul>
-                <li>💪 Discover which exercises actually work (and which are wasting your time)</li>
-                <li>📈 How to build a training foundation that sets you up for long-term success</li>
-                <li>⚡ Real strategies to stay consistent when motivation disappears</li>
+                <li><span>💪</span> Discover which exercises actually work (and which are wasting your time)</li>
+                <li><span>📈</span> How to build a training foundation that sets you up for long-term success</li>
+                <li><span>⚡</span> Real strategies to stay consistent when motivation disappears</li>
             </ul>
         </div>
-    </section>
+        
+    </div>
+</section>
 
 <!-- About Joseph Section -->
 <section class="about-section">

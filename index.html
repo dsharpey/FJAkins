@@ -99,12 +99,22 @@ h1, h2, h3 {
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
-    align-items: flex-start;
+    align-items: stretch; /* Makes both containers the same height */
 }
 
 /* Individual sections */
-.problem-section, .solution-section {
-    flex: 1;
+.problem-section {
+    flex: 0.8; /* Makes it 40% of the width instead of 50% */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.solution-section {
+    flex: 1.2; /* Makes it 60% of the width instead of 50% */
     background: rgba(255, 255, 255, 0.05);
     padding: 40px 30px;
     border-radius: 15px;
